@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#080706">
+  <meta name="description" content="七宗罪与七美德综合测试：28 道情境陈述，看见选择背后的暗面驱力与光面力量。">
+  <title>七宗罪 × 七美德综合测试</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="ambient" aria-hidden="true"></div>
+  <main id="app">
+    <section id="homeView" class="view active">
+      <div class="home-shell panel-ornate">
+        <div class="eyebrow"><span></span>自我观察测试<span></span></div>
+        <h1>七宗罪 <b>×</b> 七美德<br>综合测试</h1>
+        <p class="hero-sub">看见选择背后的暗面驱力与光面力量</p>
+        <p class="hero-copy">28 道情境陈述，从傲慢、嫉妒、暴怒、懒惰、贪婪、暴食、色欲，以及善良、真诚、勇敢、勤奋、担当、自律、宽容十四个维度，描绘你的决策倾向。</p>
+        <div class="meta-row">
+          <span>共 28 题</span><span>预计 4–6 分钟</span><span>无标准答案</span><span>仅供娱乐与自我观察</span>
+        </div>
+        <div id="homeActions" class="home-actions">
+          <button id="startBtn" class="btn primary">开始测试</button>
+        </div>
+        <p class="disclaimer">本测试用于娱乐和自我观察，不属于经过临床验证的心理测量工具，不能替代心理咨询、医学诊断或专业判断。</p>
+      </div>
+    </section>
+
+    <section id="quizView" class="view">
+      <div class="quiz-shell">
+        <header class="quiz-head">
+          <button id="backBtn" class="icon-btn" aria-label="返回上一题">←</button>
+          <div class="progress-wrap"><div class="progress-meta"><span>答题进度</span><strong id="progressText">1 / 28</strong></div><div class="progress-track"><i id="progressBar"></i></div></div>
+        </header>
+        <article class="question-card panel-ornate">
+          <div id="questionIndex" class="question-index">第 01 题</div>
+          <h2 id="questionText"></h2>
+          <div id="answerList" class="answer-list"></div>
+          <button id="nextBtn" class="btn secondary" disabled>下一题</button>
+          <p class="key-hint">也可以按数字键 1–5 选择</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="loadingView" class="view"><div class="calculating"><div class="calc-rings"><i></i><i></i><i></i></div><p>正在整理你的选择印记…</p></div></section>
+
+    <section id="resultView" class="view result-view">
+      <div id="resultContent"></div>
+      <div class="result-actions"><button id="saveBtn" class="btn primary">保存结果图</button><button id="restartBtn" class="btn secondary">重新测试</button></div>
+      <p class="footer-note">所有答案与结果仅在当前浏览器本地处理。结果仅供娱乐与自我观察，不能替代心理咨询、医学诊断或专业判断。</p>
+    </section>
+  </main>
+
+  <dialog id="confirmDialog"><div class="dialog-mark">◇</div><h3>确认重新开始？</h3><p>当前答题进度和最近一次结果将被清除。</p><div><button id="cancelReset" class="btn secondary">取消</button><button id="confirmReset" class="btn danger">确认清除</button></div></dialog>
+  <dialog id="imageDialog" class="image-dialog"><h3>结果图已生成</h3><p>如果没有自动下载，请长按下方图片保存。</p><img id="resultImage" alt="七宗罪与七美德综合测试结果图"><button id="closeImage" class="btn secondary">关闭</button></dialog>
+  <div id="toast" role="status" aria-live="polite"></div>
+  <script src="app.js"></script>
+</body>
+</html>
